@@ -1,2 +1,8 @@
 /.idea/
-/src/first_laboratory_work/cmake-build-debug/CMakeFiles/clion-log.txt
+/.catkin_tools/
+/build/
+/cmake-build-debug/
+/devel/
+/src/first_laboratory_work/cmake-build-debug/
+/src/CMakeLists.txt
+/.catkin_workspace
