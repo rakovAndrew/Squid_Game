@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.0.2)
 project(first_laboratory_work)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
+add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -109,7 +109,7 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
+  include
   ${catkin_INCLUDE_DIRS}
 )
 
@@ -126,8 +126,10 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
+set(INCLUDE_FILES include/first_laboratory_work/Hero.h include/first_laboratory_work/Path.h include/first_laboratory_work/Game.h)
+set(SOURCE_FILES src/Hero.cpp src/Path.cpp src/Game.cpp)
 add_executable(publisher src/publisher.cpp)
-add_executable(subscriber src/subscriber.cpp)
+add_executable(subscriber src/subscriber.cpp ${SOURCE_FILES} ${INCLUDE_FILES})
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
