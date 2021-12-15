@@ -2,7 +2,7 @@
 #include "std_msgs/String.h"
 #include <string>
 #include <iostream>
-#include "../../../devel/include/first_laboratory_work/choose_path.h"
+#include "first_laboratory_work/choose_path.h"
 
 using namespace std;
 using namespace std_msgs;
@@ -14,7 +14,7 @@ int main(int argc, char **argv)
     NodeHandle handler;
     ServiceClient publisher = handler.serviceClient<first_laboratory_work::choose_path>("path_to_win");
     first_laboratory_work::choose_path srv;
-    string path;
+    char path;
     while(ok())
     {
         cout << "Choose path to win. You have to write \"l\" to take left side or \"r\" to take right side:";

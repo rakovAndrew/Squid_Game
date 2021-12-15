@@ -4,22 +4,28 @@
 #include <string>
 #include <ctime>
 #include <cassert>
+using namespace std;
+#include "first_laboratory_work/hero.h"
+#include "first_laboratory_work/game.h"
 
 class Path
 {
 public:
     Path(unsigned int path_length);
 
-    char getPositionToCheck(unsigned step);
+    string getHolePath();
 
-    bool checkPathCorrectness(int position_to_check);
+    int getPathLength();
 
-    std::string checkGameEnd(int path_length, int stepQuantity);
+    char getPositionToCheck(int step);
 
-    Hero hero;
+    bool checkPossibilityToContinueGame(int position_to_check);
+
+    string checkPathEnd(int path_length, int stepQuantity);
+
 private:
     unsigned int path_length;
-    std::string path;
+    string path;
 };
 
 #endif //first_laboratory_work_PATH_H

@@ -63,7 +63,7 @@ add_service_files(
 ## Generate added messages and services with any dependencies listed here
 generate_messages(
     DEPENDENCIES
-    std_msgs 
+    std_msgs
 )
 
 ################################################
@@ -111,6 +111,7 @@ catkin_package(
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}
+#  sources
 )
 
 ## Declare a C++ library
@@ -126,8 +127,8 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-set(INCLUDE_FILES include/first_laboratory_work/Hero.h include/first_laboratory_work/Path.h include/first_laboratory_work/Game.h)
-set(SOURCE_FILES src/Hero.cpp src/Path.cpp src/Game.cpp)
+set(INCLUDE_FILES include/first_laboratory_work/hero.h include/first_laboratory_work/path.h include/first_laboratory_work/game.h)
+set(SOURCE_FILES sources/hero.cpp sources/path.cpp sources/game.cpp)
 add_executable(publisher src/publisher.cpp)
 add_executable(subscriber src/subscriber.cpp ${SOURCE_FILES} ${INCLUDE_FILES})
 

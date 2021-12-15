@@ -1,19 +1,23 @@
 #ifndef first_laboratory_work_GAME_H
 #define first_laboratory_work_GAME_H
 
-#include "first_laboratory_work/Hero.h"
-#include "first_laboratory_work/Path.h"
-#include "../../../../devel/include/first_laboratory_work/choose_path.h"
+#include "first_laboratory_work/hero.h"
+#include "first_laboratory_work/choose_path.h"
+#include "first_laboratory_work/path.h"
 
 class Game
 {
-    public:
-        Game(unsigned int gameSteps);
+public:
 
-        bool makeStep(first_laboratory_work::choose_path::Request &req, first_laboratory_work::choose_path::Response &res);
+    Game(class Hero *hero, class Path *path);
 
-    private:
-        Path path;
+    bool makeStep(first_laboratory_work::choose_path::Request &req, first_laboratory_work::choose_path::Response &res);
+
+private:
+    Hero *hero;
+    Path *path;
+
+    bool checkPossibilityToContinueGame(int position_to_check);
 };
 
 
