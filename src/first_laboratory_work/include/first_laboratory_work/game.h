@@ -13,6 +13,8 @@ public:
 
     bool makeStep(first_laboratory_work::choose_path::Request &req, first_laboratory_work::choose_path::Response &res);
 
+    bool isHeroAlive();
+
 private:
     Hero *hero;
     Path *path;

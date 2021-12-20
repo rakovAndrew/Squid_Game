@@ -9,27 +9,48 @@ Game::Game(class Hero *hero, class Path * path)
 
 bool Game::makeStep(first_laboratory_work::choose_path::Request &req, first_laboratory_work::choose_path::Response &res)
 {
-    if (req.turn != 'l' && req.turn != 'r')
+    if (req.turn != "l" &&
+        req.turn != "left" &&
+        req.turn != "r" &&
+        req.turn != "right")
     {
-        ROS_INFO("You have to use \'l\' or \'r\'!!!!!");
-        return false;
+        ROS_INFO("You have to use \'l\'/\'left\' or \'r\'/\'right\'!!!!!");
+        res.status = "You have to use \'l\'/\'left\' or \'r\'/\'right\'!!!!!";
+        return true;
     }
 
-    if (req.turn == 'l')
+    if (req.turn == "l" || req.turn == "left")
     {
         ROS_INFO("You have taken the left side");
         this->hero->setStep('l');
-        res.condition = this->checkPossibilityToContinueGame(this->hero->getStepQuantity());
-        return true;
+        if (this->checkPossibilityToContinueGame(this->hero->getStepQuantity()))
+        {
+            res.status = "Good choice... Let's go to the next one!";
+            return true;
+        }
+        res.status = "You're dead";
+        this->hero->setLifeInfo(false);
+        return false;
     }
 
-    if (req.turn == 'r')
+    if (req.turn == "r" || req.turn == "right")
     {
         ROS_INFO("You have taken the right side");
         this->hero->setStep('r');
-        res.condition = this->checkPossibilityToContinueGame(this->hero->getStepQuantity());
-        return true;
+        if (this->checkPossibilityToContinueGame(this->hero->getStepQuantity()))
+        {
+            res.status = "Good choice... Let's go to the next one!";
+            return true;
+        }
+        res.status = "You're dead";
+        this->hero->setLifeInfo(false);
+        return false;
     }
+}
+
+bool Game::isHeroAlive()
+{
+    return this->hero->getLifeInfo();
 }
 
 bool Game::checkPossibilityToContinueGame(int position_to_check)
