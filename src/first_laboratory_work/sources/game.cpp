@@ -1,10 +1,13 @@
 #include "first_laboratory_work/game.h"
-#include "ros/ros.h"
+
+using namespace ros;
 
 Game::Game(class Hero* hero, class Path* path)
 {
+    NodeHandle handler;
     this->hero = hero;
     this->path = path;
+    this->publisher = handler.advertise<String>("game_topic", 100);
 }
 
 bool Game::makeStep(first_laboratory_work::choose_path::Request &req, first_laboratory_work::choose_path::Response &res)
@@ -66,6 +69,9 @@ string Game::turn(char side)
             return "You won, little peace of shit!..";
         }
 
+        String message;
+        message.data = side;
+        this->publisher.publish(message);
         return string("Good choice... Let's go to the next one! ") +
                "You have made this way: " +
                this->path->getHolePath().substr(0, this->hero->getStepQuantity());

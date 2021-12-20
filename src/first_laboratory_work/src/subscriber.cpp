@@ -1,10 +1,7 @@
 #include <tiff.h>
-#include "ros/ros.h"
-#include "std_msgs/String.h"
 #include "../include/first_laboratory_work/hero.h"
 #include "../include/first_laboratory_work/path.h"
 #include "../include/first_laboratory_work/game.h"
-
 
 using namespace ros;
 using namespace std_msgs;
@@ -26,10 +23,9 @@ int main(int argc, char **argv)
         loop_rate.sleep();
         if (!game.isHeroAlive() || game.isGameEnd())
         {
-            ROS_INFO("shut");
+            ROS_INFO("I've ended my work");
             shutdown();
         }
     }
-    ROS_INFO("end");
     return 0;
 }
