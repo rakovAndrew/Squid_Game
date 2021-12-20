@@ -66,7 +66,7 @@ string Game::turn(char side)
     {
         if (isGameEnd())
         {
-            return "You won, little peace of shit!..";
+            return "You won, little piece of shit!..";
         }
 
         String message;
@@ -79,5 +79,5 @@ string Game::turn(char side)
     }
 
     this->hero->setLifeInfo(false);
-    return "You're dead";
+    return "You are dead";
 }
