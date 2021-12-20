@@ -16,10 +16,12 @@ public:
     bool isHeroAlive();
 
 private:
-    Hero *hero;
-    Path *path;
+    Hero* hero;
+    Path* path;
 
     bool checkPossibilityToContinueGame(int position_to_check);
+
+    string turn(char side);
 };
 
 
