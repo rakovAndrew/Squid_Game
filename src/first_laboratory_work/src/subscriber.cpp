@@ -29,9 +29,6 @@ int main(int argc, char **argv)
         loop_rate.sleep();
         if (!game.isHeroAlive())
         {
-            srv.request.turn = "dead";
-            srv.response.status = "dead";
-            publisher.call(srv);
             ROS_INFO("shut");
             shutdown();
         }

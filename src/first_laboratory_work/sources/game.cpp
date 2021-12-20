@@ -30,7 +30,7 @@ bool Game::makeStep(first_laboratory_work::choose_path::Request &req, first_labo
         }
         res.status = "You're dead";
         this->hero->setLifeInfo(false);
-        return false;
+        return true;
     }
 
     if (req.turn == "r" || req.turn == "right")
@@ -44,7 +44,7 @@ bool Game::makeStep(first_laboratory_work::choose_path::Request &req, first_labo
         }
         res.status = "You're dead";
         this->hero->setLifeInfo(false);
-        return false;
+        return true;
     }
 }
 
