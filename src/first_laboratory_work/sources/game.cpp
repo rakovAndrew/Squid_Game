@@ -66,7 +66,9 @@ string Game::turn(char side)
             return "You won, little peace of shit!..";
         }
 
-        return "Good choice... Let's go to the next one!";
+        return string("Good choice... Let's go to the next one! ") +
+               "You have made this way: " +
+               this->path->getHolePath().substr(0, this->hero->getStepQuantity());
     }
 
     this->hero->setLifeInfo(false);

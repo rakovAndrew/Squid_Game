@@ -129,7 +129,6 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 set(INCLUDE_FILES include/first_laboratory_work/hero.h include/first_laboratory_work/path.h include/first_laboratory_work/game.h)
 set(SOURCE_FILES sources/hero.cpp sources/path.cpp sources/game.cpp)
-add_executable(publisher src/publisher.cpp)
 add_executable(subscriber src/subscriber.cpp ${SOURCE_FILES} ${INCLUDE_FILES})
 
 ## Rename C++ executable without prefix
@@ -143,9 +142,6 @@ add_executable(subscriber src/subscriber.cpp ${SOURCE_FILES} ${INCLUDE_FILES})
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(publisher
-        ${catkin_LIBRARIES}
-)
 target_link_libraries(subscriber
         ${catkin_LIBRARIES}
 )
