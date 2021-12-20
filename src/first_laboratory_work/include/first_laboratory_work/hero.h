@@ -1,8 +1,6 @@
 #ifndef first_laboratory_work_HERO_H
 #define first_laboratory_work_HERO_H
 
-#include "first_laboratory_work/hero.h"
-
 class Hero
 {
 public:

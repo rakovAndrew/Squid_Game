@@ -15,8 +15,10 @@ int main(int argc, char **argv)
     Game game(&hero, &path);
     ServiceServer server = handler.advertiseService("path_to_win", &Game::makeStep, (Game*) &game);
     Publisher publisher = handler.advertise<String>("game_topic", 100);
+
     ROS_INFO("I'm ready");
     Rate loop_rate(100);
+
     while(ok())
     {
         spinOnce();

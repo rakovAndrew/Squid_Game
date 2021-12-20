@@ -4,9 +4,10 @@
 #include <string>
 #include <ctime>
 #include <cassert>
-using namespace std;
+#include <iostream>
 #include "first_laboratory_work/hero.h"
-#include "first_laboratory_work/game.h"
+
+using namespace std;
 
 class Path
 {

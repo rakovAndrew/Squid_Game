@@ -1,10 +1,10 @@
 #ifndef first_laboratory_work_GAME_H
 #define first_laboratory_work_GAME_H
 
-#include "first_laboratory_work/hero.h"
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 #include "first_laboratory_work/choose_path.h"
+#include "first_laboratory_work/hero.h"
 #include "first_laboratory_work/path.h"
 
 using namespace ros;

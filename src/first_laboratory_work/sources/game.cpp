@@ -72,6 +72,7 @@ string Game::turn(char side)
         String message;
         message.data = side;
         this->publisher.publish(message);
+
         return string("Good choice... Let's go to the next one! ") +
                "You have made this way: " +
                this->path->getHolePath().substr(0, this->hero->getStepQuantity());

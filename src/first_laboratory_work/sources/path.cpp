@@ -1,5 +1,4 @@
 #include "first_laboratory_work/path.h"
-#include <iostream>
 
 using namespace std;
 
@@ -35,8 +34,6 @@ int Path::getPathLength()
 
 char Path::getPositionToCheck(int step)
 {
-    assert(step < path_length &&
-           "You can't check the negative path position or check the position outside the path");
     char position = this->path[step];
     return position;
 }
