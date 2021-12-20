@@ -21,7 +21,7 @@ public:
 
     bool checkPossibilityToContinueGame(int position_to_check);
 
-    string checkPathEnd(int path_length, int stepQuantity);
+    bool checkPathEnd(int path_length, int stepQuantity);
 
 private:
     unsigned int path_length;

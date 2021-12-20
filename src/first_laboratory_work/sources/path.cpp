@@ -41,14 +41,14 @@ char Path::getPositionToCheck(int step)
     return position;
 }
 
-string Path::checkPathEnd(int path_length, int step_quantity)
+bool Path::checkPathEnd(int path_length, int step_quantity)
 {
     if(step_quantity < path_length)
     {
-        return "Good choice... Let's go to the next one!";
+        return false;
     }
     else
     {
-        return "You won, little peace of shit!..";
+        return true;
     }
 }

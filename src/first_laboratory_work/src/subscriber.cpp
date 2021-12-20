@@ -19,15 +19,13 @@ int main(int argc, char **argv)
     ServiceServer server = handler.advertiseService("path_to_win", &Game::makeStep, (Game*) &game);
     Publisher publisher = handler.advertise<String>("game_topic", 100);
     ROS_INFO("I'm ready");
-    cout << "The right path is: " + path.getHolePath() << endl;
     //spin();
-    first_laboratory_work::choose_path srv;
     Rate loop_rate(100);
     while(ok())
     {
         spinOnce();
         loop_rate.sleep();
-        if (!game.isHeroAlive())
+        if (!game.isHeroAlive() || game.isGameEnd())
         {
             ROS_INFO("shut");
             shutdown();

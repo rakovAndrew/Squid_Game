@@ -36,6 +36,11 @@ bool Game::isHeroAlive()
     return this->hero->getLifeInfo();
 }
 
+bool Game::isGameEnd()
+{
+    return this->path->checkPathEnd(this->path->getPathLength(), this->hero->getStepQuantity());
+}
+
 bool Game::checkPossibilityToContinueGame(int position_to_check)
 {
     char currentPathStep = this->path->getPositionToCheck(position_to_check);
@@ -56,6 +61,11 @@ string Game::turn(char side)
 
     if (this->checkPossibilityToContinueGame(this->hero->getStepQuantity()))
     {
+        if (isGameEnd())
+        {
+            return "You won, little peace of shit!..";
+        }
+
         return "Good choice... Let's go to the next one!";
     }
 

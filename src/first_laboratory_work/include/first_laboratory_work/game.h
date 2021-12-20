@@ -15,6 +15,8 @@ public:
 
     bool isHeroAlive();
 
+    bool isGameEnd();
+
 private:
     Hero* hero;
     Path* path;
